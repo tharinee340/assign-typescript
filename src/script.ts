@@ -26,12 +26,17 @@ function employee(config:SquareConfig): {firstName: string; lastName: string; id
     }
     if(config.salary) {
         newEmployee.salary = config.salary
-        if(config.bonus) {
+        if(config.bonus == true) {
             newEmployee.salary = config.salary*2.5
+            newEmployee.bonus = config.bonus
         }
     }
+    if(config.bonus == false) {
+        newEmployee.bonus = config.bonus
+    }
+
     return newEmployee
 }
 
-let myEmployee = employee({firstName: "Tharinee", lastName: "Thuengnok", id: 340, age: 19, salary: 200, bonus: true})
+let myEmployee = employee({firstName: "Tharinee", lastName: "Thuengnok", id: 340, age: 19, salary: 100, bonus: true})
 console.log("myEmployee", myEmployee)
